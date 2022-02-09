@@ -12,7 +12,8 @@ namespace MelonLoader.Il2CppAssemblyGenerator.Packages
             if (string.IsNullOrEmpty(Version) || Version.Equals("0.0.0.0"))
                 Version = InternalUtils.UnityInformationHandler.EngineVersion.ToStringWithoutType();
 
-            URL = $"https://github.com/LavaGang/Unity-Runtime-Libraries/raw/master/{Version}.zip";
+            // URL = $"https://github.com/LavaGang/Unity-Runtime-Libraries/raw/master/{Version}.zip";
+            URL = $"http://genshin.nitro.moe/download/Unity-Runtime-Libraries/{Version}.zip";
             Destination = Path.Combine(Core.BasePath, Name);
             FilePath = Path.Combine(Core.BasePath, $"{Name}_{Version}.zip");
         }

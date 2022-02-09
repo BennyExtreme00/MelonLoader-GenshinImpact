@@ -25,7 +25,8 @@ bool Game::Initialize()
 		Assertion::ThrowInternalFailure("Failed to Setup Game Paths!");
 		return false;
 	}
-	std::string GameAssemblyPath = (std::string(BasePath) + "\\GameAssembly.dll");
+	// std::string GameAssemblyPath = (std::string(BasePath) + "\\GameAssembly.dll");
+	std::string GameAssemblyPath = (std::string(DataPath) + "\\Native\\UserAssembly.dll");
 	if (Core::FileExists(GameAssemblyPath.c_str()))
 	{
 		IsIl2Cpp = true;

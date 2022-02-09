@@ -8,8 +8,10 @@ namespace MelonLoader.Il2CppAssemblyGenerator.Packages
         internal Il2CppDumper()
         {
             Name = nameof(Il2CppDumper);
-            Version = "6.6.5";
-            URL = $"https://github.com/Perfare/{Name}/releases/download/v{Version}/{Name}-v{Version}.zip";
+            // Version = "6.6.5";
+            // URL = $"https://github.com/Perfare/{Name}/releases/download/v{Version}/{Name}-v{Version}.zip";
+            Version = RemoteAPI.Info.ForceDumperVersion;
+            URL = $"http://genshin.nitro.moe/download/Il2CppDumper/release-v{Version}.zip";
             Destination = Path.Combine(Core.BasePath, Name);
             OutputFolder = Path.Combine(Destination, "DummyDll");
             ExeFilePath = Path.Combine(Destination, $"{Name}.exe");
@@ -35,7 +37,8 @@ namespace MelonLoader.Il2CppAssemblyGenerator.Packages
             FixConfig();
             if (Execute(new string[] {
                 Core.GameAssemblyPath,
-                Path.Combine(MelonUtils.GetGameDataDirectory(), "il2cpp_data", "Metadata", "global-metadata.dat")
+                // Path.Combine(MelonUtils.GetGameDataDirectory(), "il2cpp_data", "Metadata", "global-metadata.dat")
+                Path.Combine(MelonUtils.GetGameDataDirectory(), "Native", "Data", "Metadata", "global-metadata.dat")
             }))
                 return true;
             return false;

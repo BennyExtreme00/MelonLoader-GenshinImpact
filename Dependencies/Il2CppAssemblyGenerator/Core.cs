@@ -32,7 +32,8 @@ namespace MelonLoader.Il2CppAssemblyGenerator
 
             AssemblyGenerationNeeded = MelonLaunchOptions.Il2CppAssemblyGenerator.ForceRegeneration;
 
-            GameAssemblyPath = Path.Combine(MelonUtils.GameDirectory, "GameAssembly.dll");
+            // GameAssemblyPath = Path.Combine(MelonUtils.GameDirectory, "GameAssembly.dll");
+            GameAssemblyPath = Path.Combine(MelonUtils.GetGameDataDirectory(), "Native", "UserAssembly.dll");
             ManagedPath = string.Copy(MelonUtils.GetManagedDirectory());
 
             BasePath = Path.GetDirectoryName(typeof(Core).Assembly.Location);
@@ -46,11 +47,15 @@ namespace MelonLoader.Il2CppAssemblyGenerator
                 RemoteAPI.Contact();
 
             // Temporary Workaround for Cpp2IL Failing on Unsupported OSes
-            if (!MelonUtils.IsUnderWineOrSteamProton() && ((Environment.OSVersion.Version.Major < 6) // Is Older than Vista
+            /*if (!MelonUtils.IsUnderWineOrSteamProton() && ((Environment.OSVersion.Version.Major < 6) // Is Older than Vista
                 || ((Environment.OSVersion.Version.Major == 6) && (Environment.OSVersion.Version.Minor < 1)))) // Is Older than Windows 7 or Server 2008 R2
                 dumper = new Il2CppDumper();
             else
                 dumper = new Cpp2IL();
+            */
+
+            // TODO: Implement MetadataDecryptor and run Cpp2IL instead as it's much faster
+            dumper = new Il2CppDumper();
 
             il2cppassemblyunhollower = new Il2CppAssemblyUnhollower();
             unitydependencies = new UnityDependencies();

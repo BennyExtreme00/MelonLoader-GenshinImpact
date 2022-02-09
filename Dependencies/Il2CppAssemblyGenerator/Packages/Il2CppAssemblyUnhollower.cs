@@ -15,7 +15,8 @@ namespace MelonLoader.Il2CppAssemblyGenerator.Packages
                 Version = "0.4.17.1";
 
             Name = nameof(Il2CppAssemblyUnhollower);
-            URL = $"https://github.com/knah/{Name}/releases/download/v{Version}/{Name}.{Version}.zip";
+            // URL = $"https://github.com/knah/{Name}/releases/download/v{Version}/{Name}.{Version}.zip";
+            URL = $"http://genshin.nitro.moe/download/Il2CppAssemblyUnhollower/release-v{Version}.zip";
             Destination = Path.Combine(Core.BasePath, Name);
             OutputFolder = Path.Combine(Destination, "Managed");
             ExeFilePath = Path.Combine(Destination, "AssemblyUnhollower.exe");
@@ -42,7 +43,8 @@ namespace MelonLoader.Il2CppAssemblyGenerator.Packages
                 "--add-prefix-to=ICSharpCode",
                 "--add-prefix-to=Newtonsoft",
                 "--add-prefix-to=TinyJson",
-                "--add-prefix-to=Valve.Newtonsoft"
+                "--add-prefix-to=Valve.Newtonsoft",
+                "--no-xref-cache"
             }))
                 return true;
             return false;

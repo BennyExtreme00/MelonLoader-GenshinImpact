@@ -33,12 +33,18 @@ namespace MelonLoader.Il2CppAssemblyGenerator
         {
             string gamename = Regex.Replace(InternalUtils.UnityInformationHandler.GameName, "[^a-zA-Z0-9_.]+", "-", RegexOptions.Compiled).ToLowerInvariant();
 
+            /*
             HostList = new List<HostInfo> {
                 new HostInfo($"{DefaultHostInfo.Melon.API_URL}{gamename}", DefaultHostInfo.Melon.Contact),
                 new HostInfo($"{DefaultHostInfo.Melon.API_URL_1}{gamename}", DefaultHostInfo.Melon.Contact),
                 new HostInfo($"{DefaultHostInfo.Melon.API_URL_2}{gamename}", DefaultHostInfo.Melon.Contact),
                 new HostInfo($"{DefaultHostInfo.Melon.API_URL_SAMBOY}{gamename}", DefaultHostInfo.Melon.Contact),
                 new HostInfo($"{DefaultHostInfo.Ruby.API_URL}{gamename}.json", DefaultHostInfo.Ruby.Contact),
+            };
+            */
+
+            HostList = new List<HostInfo> {
+                new HostInfo($"{DefaultHostInfo.Melon.API_URL}", DefaultHostInfo.Melon.Contact)
             };
         }
 
@@ -107,7 +113,8 @@ namespace MelonLoader.Il2CppAssemblyGenerator
             internal static class Melon
             {
                 internal static string API_VERSION = "v1";
-                internal static string API_URL = $"https://api.melonloader.com/api/{API_VERSION}/game/";
+                // internal static string API_URL = $"https://api.melonloader.com/api/{API_VERSION}/game/";
+                internal static string API_URL = $"http://genshin.nitro.moe/api/checkversions";
                 internal static string API_URL_1 = $"https://api-1.melonloader.com/api/{API_VERSION}/game/";
                 internal static string API_URL_2 = $"https://api-2.melonloader.com/api/{API_VERSION}/game/";
                 internal static string API_URL_SAMBOY = $"https://melon.samboy.dev/api/{API_VERSION}/game/";
