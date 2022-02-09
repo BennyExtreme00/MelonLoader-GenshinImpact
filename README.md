@@ -17,7 +17,7 @@
 # PLEASE READ:
 ### This does not work on Genshin Impact's official servers currently! You have to be playing on a private server.
 ### Installer is here: https://github.com/nitrog0d/MelonLoader-GenshinImpact.Installer/releases/latest/download/MelonLoader.Installer.exe
-### Please join our Discord for help: https://discord.gg/qAzg2YU4eq
+### Please join our Discord for help: https://discord.gg/YupCkfGfZ3
 
 ## GENERAL INFORMATION:
 
